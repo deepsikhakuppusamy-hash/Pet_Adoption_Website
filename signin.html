@@ -311,7 +311,6 @@ body {
 </div>
 
 <script>
-
 /* SHOW PASSWORD */
 function togglePassword() {
   const pass = document.getElementById("password");
@@ -326,7 +325,7 @@ function togglePassword() {
   }
 }
 
-/* VALIDATION */
+/* SIGNIN VALIDATION + CHECK */
 document.getElementById("signinForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -334,39 +333,37 @@ document.getElementById("signinForm").addEventListener("submit", function(e) {
   const password = document.getElementById("password").value.trim();
   const error = document.getElementById("errorMsg");
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // ✅ GET STORED DATA
+  const storedEmail = localStorage.getItem("userEmail");
+  const storedPassword = localStorage.getItem("userPassword");
 
-  if (email === "" || password === "") {
+  // ❌ No account exists
+  if (!storedEmail || !storedPassword) {
     error.style.display = "block";
-    error.textContent = "Please fill all fields!";
+    error.textContent = "No account found! Please sign up first.";
     return;
   }
 
-  if (!emailPattern.test(email)) {
+  // ❌ Wrong credentials
+  if (email !== storedEmail || password !== storedPassword) {
     error.style.display = "block";
-    error.textContent = "Enter a valid email address!";
+    error.textContent = "Invalid email or password!";
     return;
   }
 
-  if (password.length < 6) {
-    error.style.display = "block";
-    error.textContent = "Password must be at least 6 characters!";
-    return;
-  }
-
+  // ✅ Success
   error.style.display = "none";
-
   alert("🎉 Successfully Signed In!");
+
   window.location.href = "forms.html";
 });
-
 
 /* MENU */
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('active');
 }
-
 </script>
+
 
 <!-- FOOTER -->
 <footer class="footer">
