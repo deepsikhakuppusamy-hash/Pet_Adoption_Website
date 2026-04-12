@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clover - Rabbit Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+    
+  </ul>
+</nav>
+
+<div class="bg-video-new">
+  <video autoplay muted loop>
+    <source src="4553-179384330_medium.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="profile-video-overlay"></div>
+
+<section class="pet-wrapper">
+  <div class="pet-box">
+
+    <div class="pet-visual">
+      <img src="images/Rex.jpg" alt="Clover">
+    </div>
+
+    <div class="pet-details">
+      <h1 class="pet-name">Clover</h1>
+      <h3 class="pet-type">Rex</h3>
+
+      <ul class="pet-data">
+        <li><b>Age:</b> 2 yrs</li>
+        <li><b>Gender:</b> Male</li>
+        <li><b>Weight:</b> 2 kg</li>
+        <li><b>Colour:</b> Grey</li>
+      </ul>
+
+      <p class="pet-status">🌿 Available for Free Adoption</p>
+
+      <p class="pet-desc">
+        Clover is a gentle Rex rabbit with a soft, fluffy coat.  
+        He enjoys hopping around in open spaces, nibbling on fresh greens, 
+        and relaxing in cozy corners. Clover is vaccinated, healthy, 
+        and ready to bring comfort and joy to his new family.
+      </p>
+
+      <p class="pet-tags">🔴 Gentle • 🟠 Calm • 🟢 Affectionate</p>
+
+      <!-- 🔥 UPDATED BUTTON -->
+      <a href="signin.html?redirect=forms.html?type=rabbit" class="pet-btn">
+        Adopt Me
+      </a>
+
+    </div>
+  </div>
+
+  <div class="pet-back">
+    <a href="rabbit.html" class="btn secondary">← Back to Listings</a>
+  </div>
+</section>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

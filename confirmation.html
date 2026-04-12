@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption Success</title>
+
+  <!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #b3d9e6 0%, #d0e6f2 50%, #fdf6e3 100%);
+      background-attachment: fixed;
+      color: #333;
+      text-align: center;
+      padding-top: 100px; /* space for navbar */
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; width: 100%; height: 70px;
+      padding: 0 60px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 100;
+    }
+    /* LOGO */
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i {
+      color:#ff914d;
+      font-size: 1.3rem;
+    }
+
+    .nav-links { list-style: none; display: flex; gap: 30px; }
+    .nav-links a { color: white; text-decoration: none; transition: 0.3s; }
+    .nav-links a:hover { color: #ff914d; }
+
+    /* Hamburger Icon (hidden by default) */
+    .hamburger {
+      display: none; flex-direction: column; cursor: pointer; gap: 5px;
+    }
+    .hamburger span {
+      width: 25px; height: 3px; background: white; transition: 0.3s;
+    }
+
+    /* SUCCESS CONTENT */
+    .success-circle {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: rgba(122,158,126,0.15);
+      border: 3px solid #7a9e7e;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; margin: 0 auto 28px;
+    }
+    h1.success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px; font-weight: 900; color: #5a3e2b; margin-bottom: 14px;
+    }
+    h1.success-title span { color: #7a9e7e; }
+    p.success-sub {
+      font-size: 16px; color: #555; max-width: 500px;
+      line-height: 1.7; margin: 0 auto 40px auto;
+    }
+
+    /* Steps in boxes */
+    .success-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px; max-width: 800px; margin: 0 auto 36px auto;
+    }
+    .sstep {
+      background: #fff; border: 1.5px solid rgba(59,42,26,0.07);
+      border-radius: 18px; padding: 22px 16px; text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .sstep-icon { font-size: 26px; margin-bottom: 8px; display: block; }
+    .sstep h4 { font-size: 14px; font-weight: 600; color: #5a3e2b; margin-bottom: 5px; }
+    .sstep p { font-size: 13px; color: #444; line-height: 1.5; }
+
+    /* Buttons */
+    .success-home, .btn-next {
+      border: none; border-radius: 100px; padding: 13px 34px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      cursor: pointer; transition: background .2s; margin: 8px;
+    }
+    .success-home { background: #5a3e2b; color: #fff; }
+    .success-home:hover { background: #e6a84d; }
+    .btn-next { background: #7a9e7e; color: #fff; }
+    .btn-next:hover { background: #e6a84d; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px; right: 0;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      .nav-links.active { display: flex; }      h1.success-title { font-size: 2rem; }
+      .success-steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      h1.success-title { font-size: 1.6rem; }
+      p.success-sub { font-size: 0.9rem; padding: 0 10px; }
+      .success-steps { grid-template-columns: 1fr; }
+      .sstep h4 { font-size: 13px; }
+      .sstep p { font-size: 12px; }
+      .success-home, .btn-next { padding: 10px 20px; font-size: 0.9rem; }
+
+      .nav-links {
+        flex-direction: column; gap: 15px; margin-top: 10px;
+        background: rgba(0,0,0,0.9);
+        position: absolute; top: 70px; right: 0;
+        width: 200px; padding: 20px; display: none;
+      }
+      .nav-links.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+  </ul>
+  </nav>
+
+  <!-- SUCCESS CONTENT -->
+  <div id="page7" class="page active">
+    <div class="success-circle">🎉</div>
+    <h1 class="success-title">You're <span>Pawsome!</span></h1>
+    <p class="success-sub">Your application has been submitted! We're so excited to connect you soon!</p>
+
+    <div class="success-steps">
+      <div class="sstep">
+        <span class="sstep-icon">📧</span>
+        <h4>Check your email</h4>
+        <p>A confirmation has been sent to your inbox with your application reference.</p>
+      </div>
+      <div class="sstep">
+        <span class="sstep-icon">📞</span>
+        <h4>We'll call you</h4>
+        <p>Our team will contact you within 24 hours to schedule a meet-and-greet.</p>
+      </div>
+      <div class="sstep">
+        <span class="sstep-icon">🏡</span>
+        <h4>Welcome home</h4>
+        <p>Once approved, details will be discussed and your new companion comes home with full health records.</p>
+      </div>
+    </div>
+
+    <button class="success-home" onclick="goHome()">Back to Home 🐾</button>
+    <button class="btn-next" onclick="goTo()">View All Adoptions 📋</button>
+  </div>
+
+  <!-- 🎊 Confetti Script -->
+<!--Canvas Confetti library-->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  window.onload = () => {
+    const duration = 1500;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({ particleCount: 10, angle: 60, spread: 55, origin: { x: 0, y: Math.random() } });
+      confetti({ particleCount: 10, angle: 120, spread: 55, origin: { x: 1, y: Math.random() } });
+      confetti({ particleCount: 10, angle: 180, spread: 55, origin: { x: Math.random(), y: 0 } });
+      confetti({ particleCount: 10, angle: 0, spread: 55, origin: { x: Math.random(), y: 1 } });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  };
+
+  function goHome() {
+    window.location.href = "index.html";
+  }
+  function goTo(page) {
+    window.location.href = "review.html";
+  }
+</script>
+
+<script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+
+</body>
+</html>

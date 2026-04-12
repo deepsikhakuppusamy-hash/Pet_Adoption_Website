@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Adoption Works</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i { color: #ff914d; font-size: 1.3rem; }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: #ff914d; }
+
+    .nav-links a.active {
+      color: #ff914d;
+      font-weight: 600;
+      border-bottom: 2px solid #ff914d;
+      padding-bottom: 2px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+
+    /* ── VIDEO BACKGROUND ── */
+    .video-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+
+    /* ── CONTENT FIX ── */
+    .instructions-content {
+      padding: 120px 20px 80px;
+      text-align: center;
+      max-width: 1100px;
+      margin: auto;
+      color: white;
+    }
+
+    .tag {
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .instructions-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .instructions-content span {
+      color: #ff914d;
+    }
+
+    .subtitle {
+      margin-bottom: 40px;
+      color: #eaeaea;
+    }
+
+    /* ── STEPS FIX (CENTERED GRID) ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .step-box {
+      background: rgba(255,255,255,0.6);
+      color: black;
+      padding: 20px;
+      border-radius: 18px;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .step-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px 0;
+    }
+
+    .step-box h2 {
+      color: #ff914d;
+    }
+
+    .step-box p {
+      font-size: 0.9rem;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      margin: 40px auto;
+      padding: 15px 20px;
+      background: rgba(255,255,255,0.7);
+      color: black;
+      border-radius: 10px;
+      width: fit-content;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #ff914d;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .btn.secondary {
+      background: #5a3e2b;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: rgba(0,0,0,0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer p { margin: 5px 0; }
+
+    /* ── RESPONSIVE FIX ── */
+    @media (max-width: 900px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+
+      .nav-links.active { display: flex; }
+
+      .navbar { padding: 0 20px; }
+
+      .instructions-content h1 { font-size: 2rem; }
+    }
+
+    @media (max-width: 500px) {
+      .steps { grid-template-columns: 1fr; }
+      .instructions-content h1 { font-size: 1.6rem; }
+      .btn { padding: 8px 18px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-paw"></i>Pawfect</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instruction.html" class="active">How It Works</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- BACKGROUND VIDEO -->
+  <div class="video-bg">
+    <video autoplay muted loop>
+      <source src="9509857-uhd_2160_4096_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="video-overlay"></div>
+
+  <!-- CONTENT -->
+  <section class="instructions-content">
+    <p class="tag"><b>BEFORE YOU BEGIN</b></p>
+    <h1>How <span>Adoption</span> Works</h1>
+    <p class="subtitle">Simple, free, and full of love — here's what to expect.</p>
+
+    <div class="steps">
+      <div class="step-box">
+        <h2>01</h2>
+        <img src="images/pexels-helen1-16395147.jpg">
+        <h3>Choose Animal</h3>
+        <p>Pick from dogs, cats, birds and more.</p>
+      </div>
+
+      <div class="step-box">
+        <h2>02</h2>
+        <img src="images/pexels-ron-lach-7801135.jpg">
+        <h3>Browse Pets</h3>
+        <p>Explore pets with full details.</p>
+      </div>
+
+      <div class="step-box">
+        <h2>03</h2>
+        <img src="images/pexels-mikhail-nilov-7470632.jpg">
+        <h3>View Profile</h3>
+        <p>Check health and personality.</p>
+      </div>
+
+      <div class="step-box">
+        <h2>04</h2>
+        <img src="images/pexels-esra-afsar-123882149-10759425.jpg">
+        <h3>Adopt</h3>
+        <p>Apply and take your pet home.</p>
+      </div>
+    </div>
+
+    <div class="info-box">✅ All adoptions are 100% free and safe.</div>
+
+    <div>
+      <a href="index.html" class="btn secondary">← Back</a>
+      <a href="browse.html" class="btn">Choose your pet →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><b>Address:</b> Tamil Nadu, India</p>
+    <p><b>Email:</b> pawfectcompanions@gmail.com</p>
+    <p><b>Phone:</b> +91 98765 43210</p>
+    <p>&copy; 2026 Pawfect Companions</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

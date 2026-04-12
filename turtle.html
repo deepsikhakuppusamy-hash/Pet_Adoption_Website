@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turtle Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to top, #fdf6e3 0%, #e8f1f8 50%, #d0e6f2 80%, #b3d9e6 100%);
+  background-attachment: fixed;
+  color: #333;
+  padding-top: 70px; /* clears fixed navbar */
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+/* LOGO */
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i {
+      color:#ff914d;
+      font-size: 1.3rem;
+    }
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-links a:hover { color: #ff914d; }
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px; height: 3px; background: white; transition: 0.3s;
+}
+
+/* SECTION */
+.turtle-section { padding: 40px 20px; text-align: center; }
+.title h1 { font-size: 2.3rem; color: #5a3e2b; }
+.subtitle { color: #7a6a58; margin-bottom: 40px; }
+
+/* CONTAINER */
+.turtle-container { display: flex; justify-content: center; }
+
+/* CARD */
+.turtle-card {
+  background: white;
+  padding: 30px;
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.turtle-card h2 { color: #ff914d; margin-bottom: 10px; }
+.breed { color: #444; margin-bottom: 10px; }
+.info { color: #555; font-size: 0.9rem; margin-bottom: 10px; }
+.adoption { color: green; font-weight: 600; margin-bottom: 15px; }
+.turtle-card img {
+  width: 100%; height: 180px; object-fit: cover;
+  border-radius: 15px; margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #ff914d;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+}
+.btn.secondary { background: #5a3e2b; }
+.btn:hover { transform: scale(1.05); background: #ff7a1a; }
+
+/* BACK BUTTON */
+.buttons { margin-top: 40px; }
+
+/* FOOTER */
+.footer {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.footer p { margin: 5px 0; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .title h1 { font-size: 2rem; }
+  .subtitle { font-size: 0.9rem; }
+  .turtle-card { width: 240px; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 70px; right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    gap: 15px;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+  .nav-links.active { display: flex; }
+
+  .title h1 { font-size: 1.8rem; }
+  .subtitle { font-size: 0.85rem; }
+}
+
+@media (max-width: 500px) {
+  .turtle-section { padding: 50px 10px; }
+  .title h1 { font-size: 1.6rem; }
+  .subtitle { font-size: 0.8rem; }
+  .turtle-card { width: 100%; padding: 15px; }
+  .turtle-card img { height: 160px; }
+  .btn { padding: 8px 18px; font-size: 0.8rem; }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+  </ul>
+
+</nav>
+
+<!-- CONTENT -->
+<section class="turtle-section">
+  <div class="title">
+    <h1>Available Turtles 🐢</h1>
+    <p class="subtitle">Click card to view full profile</p>
+  </div>
+
+  <div class="turtle-container">
+    <div class="turtle-card">
+      <img src="images/tortoise.jpg" alt="Shellby the Turtle">
+      <h2>Shellby</h2>
+      <p class="breed">Red-Eared Slider</p>
+      <p class="info">📅 5 yrs &nbsp; ♂ Male &nbsp; 🐾 2 kg</p>
+      <p class="adoption">Free Adoption</p>
+      <a href="shellby.html" class="btn">See details</a>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a href="browse.html" class="btn secondary">← Back</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><b>Address:</b> 123 Paw Street, Uthukottai, Tamil Nadu, India</p>
+  <p><b>Email:</b> pawfectcompanions@gmail.com</p>
+  <p><b>Phone:</b> +91 98765 43210</p>
+  <p>&copy; 2026 Pawfect Companions. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+</script>
+</body>
+</html>

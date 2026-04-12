@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocky - Dog Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+    
+  </ul>
+</nav>
+
+<!-- VIDEO BACKGROUND -->
+<div class="bg-video-new">
+  <video autoplay muted loop>
+    <source src="13746773_2160_3840_25fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="profile-video-overlay"></div>
+
+<!-- PET SECTION -->
+<section class="pet-wrapper">
+
+  <div class="pet-box">
+
+    <div class="pet-visual">
+      <img src="images/rocky.jpg" alt="Rocky">
+    </div>
+
+    <div class="pet-details">
+      <h1 class="pet-name">Rocky</h1>
+      <h3 class="pet-type">Indian Pariah</h3>
+
+      <ul class="pet-data">
+        <li><b>Age:</b> 4 yrs</li>
+        <li><b>Gender:</b> Male</li>
+        <li><b>Weight:</b> 18 kg</li>
+        <li><b>Colour:</b> Brown</li>
+      </ul>
+
+      <p class="pet-status">🌿 Available for Adoption</p>
+
+      <p class="pet-desc">
+        Rocky is a loyal and intelligent Indian Pariah dog. He is alert and 
+        protective, yet gentle with those he trusts.
+      </p>
+
+      <p class="pet-tags">🟠 Alert • 🟡 Loyal • 🟢 Protective</p>
+
+      <!-- 🔥 UPDATED BUTTON -->
+      <a href="signin.html?redirect=forms.html?type=dog" class="pet-btn">
+        Adopt Me
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="pet-back">
+    <a href="dog.html" class="btn secondary">← Back to Listings</a>
+  </div>
+
+</section>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

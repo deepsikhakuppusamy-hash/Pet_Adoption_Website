@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Pawfect</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to top,#fdf6e3 0%,#e8f1f8 50%,#d0e6f2 80%,#b3d9e6 100%);
+      color: #333;
+      padding-top: 70px;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i { color: #ff914d; font-size: 1.3rem; }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: #ff914d; }
+
+    .nav-links a.active {
+      color: #ff914d;
+      font-weight: 600;
+      border-bottom: 2px solid #ff914d;
+      padding-bottom: 2px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+
+    /* ── GLOBAL ALIGNMENT FIX ── */
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 50px;
+    }
+
+    .hero h1 { font-size: 2.8rem; color: #2e4053; }
+
+    .hero p { margin-top: 10px; color: #555; }
+
+    /* STORY */
+    .story {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 10%;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .story img {
+      width: 300px;
+      border-radius: 20px;
+      background: white;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .story-text {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .story-text h2 {
+      color: #ff914d;
+      margin-bottom: 10px;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+
+    .stat h2 {
+      font-size: 2.2rem;
+      color: #3498db;
+    }
+
+    /* TIMELINE */
+    .timeline-line {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-weight: 500;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* TRUST */
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .trust-box {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* TESTIMONIAL */
+    .testimonial p {
+      margin-top: 15px;
+      font-style: italic;
+      color: #444;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CTA */
+    .cta h2 {
+      animation: zoomInOut 2s ease-in-out infinite;
+    }
+
+    .cta button {
+      background: #ff914d;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cta button:hover {
+      background: #ff6b1a;
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: rgba(0,0,0,0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer p { margin: 5px 0; }
+
+    @keyframes zoomInOut {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+
+      .nav-links.active { display: flex; }
+
+      .navbar { padding: 0 20px; }
+
+      .story-text { text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .story img { max-width: 240px; }
+      .stat h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-paw"></i>Pawfect</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instruction.html">How It Works</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Finding Homes, Creating Lifelong Bonds 🐾</h1>
+    <p>Every pet deserves love. Every home deserves joy.</p>
+  </section>
+
+  <section class="story">
+    <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16" alt="dog">
+
+    <div class="story-text">
+      <h2>Our Story</h2>
+      <p>
+        What started as a small act of kindness—rescuing a single abandoned pet—grew into a mission to change hundreds of lives. At Pawfect, we connect loving families with pets who are waiting for a second chance.
+      </p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><h2>500+</h2><p>Pets given a second chance 🐶</p></div>
+    <div class="stat"><h2>200+</h2><p>Families made happier ❤️</p></div>
+    <div class="stat"><h2>3+</h2><p>Years of love, care & trust 🤝</p></div>
+  </section>
+
+  <section>
+    <h2>How Pawfect Works 🐾</h2>
+    <div class="timeline-line">
+      <span>Browse pets 🐶</span> → <span>Find match ❤️</span> → <span>Adopt 🏠</span> → <span>Forever bond 💕</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Trust Pawfect?</h2>
+    <div class="trust-items">
+      <div class="trust-box">✔ Verified pets 🐾</div>
+      <div class="trust-box">✔ Safe process 🔍</div>
+      <div class="trust-box">✔ Vet-checked 🏥</div>
+      <div class="trust-box">✔ Support 🤝</div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <h2>What Our Adopters Say 💬</h2>
+    <p>"Pawfect helped me find my best friend. The process was smooth and safe."</p>
+  </section>
+
+  <section class="cta">
+    <h2>Your new best friend is waiting 🐶❤️</h2>
+    <p>Don’t just adopt—change a life.</p><br>
+    <a href="browse.html"><button>Adopt Now</button></a>
+  </section>
+
+  <footer class="footer">
+    <p><b>Address:</b> Tamil Nadu, India</p>
+    <p><b>Email:</b> pawfectcompanions@gmail.com</p>
+    <p><b>Phone:</b> +91 98765 43210</p>
+    <p>&copy; 2026 Pawfect Companions</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

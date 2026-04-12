@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saphire - Fish Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="signin.html" class="signin-btn">Sign In</a></li>
+  </ul>
+</nav>
+
+<div class="bg-video-new">
+  <video autoplay muted loop>
+    <source src="6590365-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="profile-video-overlay"></div>
+
+<section class="pet-wrapper">
+  <div class="pet-box">
+
+    <div class="pet-visual">
+      <img src="images/pexels-timmossholder-942295.jpg" alt="Saphire">
+    </div>
+
+    <div class="pet-details">
+      <h1 class="pet-name">Saphire</h1>
+      <h3 class="pet-type">Betta Fish</h3>
+
+      <ul class="pet-data">
+        <li><b>Age:</b> 2 yrs</li>
+        <li><b>Gender:</b> Female</li>
+        <li><b>Colour:</b> Blue</li>
+      </ul>
+
+      <p class="pet-status">🌿 Available for Free Adoption</p>
+
+      <p class="pet-desc">
+        Saphire is a stunning betta fish with shimmering blue scales. 
+        She is graceful, enjoys swimming in decorated tanks, and adds elegance 
+        to any aquarium. Saphire is healthy and easy to care for.
+      </p>
+
+      <p class="pet-tags">🔴 Graceful • 🟠 Elegant • 🟢 Hardy</p>
+
+      <!-- 🔥 UPDATED BUTTON -->
+      <a href="signin.html?redirect=forms.html?type=fish" class="pet-btn">
+        Adopt Me
+      </a>
+
+    </div>
+  </div>
+
+  <div class="pet-back">
+    <a href="fish.html" class="btn secondary">← Back to Listings</a>
+  </div>
+</section>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

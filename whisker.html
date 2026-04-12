@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whisker - Hamster Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+     
+  </ul>
+</nav>
+
+<div class="bg-video-new">
+  <video autoplay muted loop>
+    <source src="gettyimages-2180658517-640_adpp.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="profile-video-overlay"></div>
+
+<section class="pet-wrapper">
+  <div class="pet-box">
+    <div class="pet-visual">
+      <img src="images/winterwhite.jpg" alt="Whisker">
+    </div>
+    <div class="pet-details">
+      <h1 class="pet-name">Whisker</h1>
+      <h3 class="pet-type">Winter White</h3>
+      <ul class="pet-data">
+        <li><b>Age:</b> 1 yr</li>
+        <li><b>Gender:</b> Female</li>
+        <li><b>Weight:</b> 90 g</li>
+        <li><b>Colour:</b> Grey & White</li>
+      </ul>
+      <p class="pet-status">🌿 Available for Free Adoption</p>
+      <p class="pet-desc">
+        Whisker is a tiny Winter White hamster with a lively personality.  
+        She loves running on her wheel, burrowing in bedding, and nibbling treats.  
+        Whisker is healthy, friendly, and perfect for small pet lovers.
+      </p>
+      <p class="pet-tags">🔴 Energetic • 🟠 Friendly • 🟢 Playful</p>
+      <a href="signin.html?redirect=forms.html?type=hamster" class="pet-btn">Adopt Me</a>
+    </div>
+  </div>
+  <div class="pet-back">
+    <a href="hamster.html" class="btn secondary">← Back to Listings</a>
+  </div>
+</section>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+</body>
+</html>

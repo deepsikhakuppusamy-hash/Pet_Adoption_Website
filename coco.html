@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coco - Bird Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+     
+  </ul>
+</nav>
+
+<div class="bg-video-new">
+  <video autoplay muted loop>
+    <source src="13055430-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="profile-video-overlay"></div>
+
+<section class="pet-wrapper">
+  <div class="pet-box">
+
+    <div class="pet-visual">
+      <img src="images/lovebird.jpg" alt="Coco">
+    </div>
+
+    <div class="pet-details">
+      <h1 class="pet-name">Coco</h1>
+      <h3 class="pet-type">Love Bird</h3>
+
+      <ul class="pet-data">
+        <li><b>Age:</b> 2 yrs</li>
+        <li><b>Gender:</b> Female</li>
+        <li><b>Colour:</b> Green & Yellow</li>
+      </ul>
+
+      <p class="pet-status">🌿 Available for Adoption</p>
+
+      <p class="pet-desc">
+        Coco is a bright and affectionate Love Bird who loves whistling tunes 
+        and perching on shoulders. She enjoys companionship, is gentle with 
+        children, and thrives in interactive households.
+      </p>
+
+      <p class="pet-tags">🔴 Affectionate • 🟠 Gentle • 🟢 Cheerful</p>
+
+      <!-- 🔥 UPDATED BUTTON -->
+      <a href="signin.html?redirect=forms.html?type=bird" class="pet-btn">
+        Adopt Me
+      </a>
+
+    </div>
+  </div>
+
+  <div class="pet-back">
+    <a href="bird.html" class="btn secondary">← Back to Listings</a>
+  </div>
+</section>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

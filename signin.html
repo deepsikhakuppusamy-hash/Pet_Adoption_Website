@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In - Pawfect</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (IMPORTANT) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+/* BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to top, #fdf6e3 0%, #e8f1f8 50%, #d0e6f2 80%, #b3d9e6 100%);
+  background-attachment: fixed;
+}
+
+/* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i { color: #ff914d; font-size: 1.3rem; }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: #ff914d; }
+
+    .nav-links a.active {
+      color: #ff914d;
+      font-weight: 600;
+      border-bottom: 2px solid #ff914d;
+      padding-bottom: 2px;
+    }
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* CENTER CONTAINER */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px 40px;
+}
+
+/* CARD */
+.signin-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 35px 30px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.signin-container:hover {
+  transform: translateY(-6px);
+}
+
+/* TITLE */
+.signin-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* LABEL */
+.signin-container label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* INPUT */
+.signin-container input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+
+  border-radius: 10px;
+  border: 1px solid #ccc;
+
+  outline: none;
+  transition: 0.3s;
+}
+
+/* INPUT FOCUS */
+.signin-container input:focus {
+  border-color: #ff914d;
+  box-shadow: 0 0 8px rgba(255,145,77,0.3);
+}
+
+/* PASSWORD WRAPPER */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 60px;
+}
+
+/* SHOW BUTTON */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #ff914d;
+}
+
+/* BUTTON */
+.signin-container button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 25px;
+
+  background: #ff914d;
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signin-container button:hover {
+  background: #ff7a1a;
+  transform: translateY(-2px);
+}
+
+/* ERROR */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+/* EXTRA */
+.extra {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.extra a {
+  color: #ff914d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.extra a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+.footer {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.footer p { margin: 5px 0; }
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    gap: 15px;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-paw"> </i> 
+    Pawfect
+  </div>
+
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="instruction.html">How It Works</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+    
+  </ul>
+
+</nav>
+
+<!-- CENTER -->
+<div class="container">
+  <div class="signin-container">
+    <h2>🐾 Welcome Back</h2>
+
+    <form id="signinForm">
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <span class="toggle-password" onclick="togglePassword()">Show</span>
+      </div>
+
+      <div class="error" id="errorMsg">Invalid email or password</div>
+
+      <button type="submit">Sign In</button>
+
+    </form>
+
+    <div class="extra">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* SHOW PASSWORD */
+function togglePassword() {
+  const pass = document.getElementById("password");
+  const toggle = document.querySelector(".toggle-password");
+
+  if (pass.type === "password") {
+    pass.type = "text";
+    toggle.textContent = "Hide";
+  } else {
+    pass.type = "password";
+    toggle.textContent = "Show";
+  }
+}
+
+/* VALIDATION */
+document.getElementById("signinForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const error = document.getElementById("errorMsg");
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (email === "" || password === "") {
+    error.style.display = "block";
+    error.textContent = "Please fill all fields!";
+    return;
+  }
+
+  if (!emailPattern.test(email)) {
+    error.style.display = "block";
+    error.textContent = "Enter a valid email address!";
+    return;
+  }
+
+  if (password.length < 6) {
+    error.style.display = "block";
+    error.textContent = "Password must be at least 6 characters!";
+    return;
+  }
+
+  error.style.display = "none";
+
+  alert("🎉 Successfully Signed In!");
+  window.location.href = "forms.html";
+});
+
+
+/* MENU */
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+
+</script>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><b>Address:</b> 123 Paw Street, Uthukottai, Tamil Nadu, India</p>
+  <p><b>Email:</b> pawfectcompanions@gmail.com</p>
+  <p><b>Phone:</b> +91 98765 43210</p>
+  <p>&copy; 2026 Pawfect Companions. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
