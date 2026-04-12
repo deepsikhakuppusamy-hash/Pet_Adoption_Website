@@ -113,38 +113,69 @@
     .btn-next { background: #7a9e7e; color: #fff; }
     .btn-next:hover { background: #e6a84d; }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        top: 70px; right: 0;
-        background: rgba(0,0,0,0.9);
-        flex-direction: column;
-        gap: 15px;
-        width: 200px;
-        padding: 20px;
-        display: none;
-      }
-      .nav-links.active { display: flex; }      h1.success-title { font-size: 2rem; }
-      .success-steps { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      h1.success-title { font-size: 1.6rem; }
-      p.success-sub { font-size: 0.9rem; padding: 0 10px; }
-      .success-steps { grid-template-columns: 1fr; }
-      .sstep h4 { font-size: 13px; }
-      .sstep p { font-size: 12px; }
-      .success-home, .btn-next { padding: 10px 20px; font-size: 0.9rem; }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /* SHOW HAMBURGER */
+  .hamburger {
+    display: flex;
+  }
 
-      .nav-links {
-        flex-direction: column; gap: 15px; margin-top: 10px;
-        background: rgba(0,0,0,0.9);
-        position: absolute; top: 70px; right: 0;
-        width: 200px; padding: 20px; display: none;
-      }
-      .nav-links.active { display: flex; }
-      .hamburger { display: flex; }
-    }
+  /* NAV MENU */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    gap: 15px;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* TEXT ADJUST */
+  h1.success-title {
+    font-size: 2rem;
+  }
+
+  .success-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+  h1.success-title {
+    font-size: 1.6rem;
+  }
+
+  p.success-sub {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .success-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .sstep h4 {
+    font-size: 13px;
+  }
+
+  .sstep p {
+    font-size: 12px;
+  }
+
+  .success-home,
+  .btn-next {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
   </style>
 </head>
 <body>
