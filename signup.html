@@ -289,14 +289,17 @@ body {
 function togglePassword() {
   const pass = document.getElementById("password");
   const toggle = document.querySelector(".toggle-password");
+
   if (pass.type === "password") {
-    pass.type = "text"; toggle.textContent = "Hide";
+    pass.type = "text";
+    toggle.textContent = "Hide";
   } else {
-    pass.type = "password"; toggle.textContent = "Show";
+    pass.type = "password";
+    toggle.textContent = "Show";
   }
 }
 
-/* SIGNUP VALIDATION */
+/* SIGNUP VALIDATION + STORAGE */
 document.getElementById("signupForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -306,25 +309,34 @@ document.getElementById("signupForm").addEventListener("submit", function(e) {
   const error = document.getElementById("errorMsg");
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   if (!emailPattern.test(email)) {
     error.style.display = "block";
     error.textContent = "Please enter a valid email address!";
     return;
   }
+
   if (pass !== confirm) {
     error.style.display = "block";
     error.textContent = "Passwords do not match!";
     return;
   }
+
   if (pass.length < 6) {
     error.style.display = "block";
     error.textContent = "Password must be at least 6 characters!";
     return;
   }
 
+  // ✅ STORE USER DATA
+  localStorage.setItem("userEmail", email);
+  localStorage.setItem("userPassword", pass);
+
   error.style.display = "none";
   alert("🎉 Account created successfully!");
-  window.location.href = "forms.html";
+
+  // ✅ REDIRECT TO SIGN IN
+  window.location.href = "signin.html";
 });
 
 /* MENU */
@@ -332,6 +344,7 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('active');
 }
 </script>
+
 
 
 <!-- FOOTER -->
