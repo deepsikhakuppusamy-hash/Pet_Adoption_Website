@@ -385,6 +385,30 @@
       alert("You must agree to be contacted.");
       return false;
     }
+    const name = document.getElementById("name").value.trim();
+    if (!/^[A-Za-z\s]+$/.test(name)) {
+      alert("Name should only contain letters and spaces.");
+      return false;
+    }
+    const city = document.getElementById("city").value.trim();
+    if (!/^[A-Za-z\s]+$/.test(city)) {
+      alert("City should only contain letters and spaces.");
+      return false;
+    }
+    const pet = document.getElementById("pet").value.trim();
+    if (!/^[A-Za-z\s]+$/.test(pet)) {
+     alert("Pet name should only contain letters and spaces.");
+     return false;
+    }
+    const reason = document.getElementById("reason").value.trim();
+    if (reason.length < 10) {
+     alert("Please provide a more detailed reason (at least 10 characters).");
+     return false;
+    }
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+     alert("Please enter a valid 10-digit mobile number starting with 6–9.");
+     return false;
+    }
 
     // SUCCESS
     window.location.href = "confirmation.html";
