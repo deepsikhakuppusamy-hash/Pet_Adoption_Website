@@ -301,6 +301,13 @@ function togglePassword() {
     toggle.textContent = "Show";
   }
 }
+  const name = document.querySelector("input[type='text']").value.trim();
+if (!/^[A-Za-z\s]+$/.test(name)) {
+  error.style.display = "block";
+  error.textContent = "Name should only contain letters and spaces!";
+  return;
+}
+
 
 /* SIGNUP VALIDATION + STORAGE */
 document.getElementById("signupForm").addEventListener("submit", function(e) {
